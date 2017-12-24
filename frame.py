@@ -1,0 +1,90 @@
+# -*- coding: utf-8 -*-
+
+# Form implementation generated from reading ui file 'frame.ui'
+#
+# Created by: PyQt5 UI code generator 5.9.1
+#
+# WARNING! All changes made in this file will be lost!
+
+from PyQt5 import QtCore, QtGui, QtWidgets
+
+class Ui_Form(object):
+    def setupUi(self, Form):
+        Form.setObjectName("Form")
+        Form.resize(814, 605)
+        self.verticalLayout_2 = QtWidgets.QVBoxLayout(Form)
+        self.verticalLayout_2.setObjectName("verticalLayout_2")
+        self.horizontalLayout = QtWidgets.QHBoxLayout()
+        self.horizontalLayout.setObjectName("horizontalLayout")
+        self.tableWidgetSource = QtWidgets.QTableWidget(Form)
+        self.tableWidgetSource.setObjectName("tableWidgetSource")
+        self.tableWidgetSource.setColumnCount(0)
+        self.tableWidgetSource.setRowCount(0)
+        self.horizontalLayout.addWidget(self.tableWidgetSource)
+        self.verticalLayout = QtWidgets.QVBoxLayout()
+        self.verticalLayout.setObjectName("verticalLayout")
+        spacerItem = QtWidgets.QSpacerItem(20, 40, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding)
+        self.verticalLayout.addItem(spacerItem)
+        self.pushButtonOpen = QtWidgets.QPushButton(Form)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Fixed)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.pushButtonOpen.sizePolicy().hasHeightForWidth())
+        self.pushButtonOpen.setSizePolicy(sizePolicy)
+        self.pushButtonOpen.setContextMenuPolicy(QtCore.Qt.DefaultContextMenu)
+        self.pushButtonOpen.setObjectName("pushButtonOpen")
+        self.verticalLayout.addWidget(self.pushButtonOpen)
+        spacerItem1 = QtWidgets.QSpacerItem(20, 40, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding)
+        self.verticalLayout.addItem(spacerItem1)
+        self.lineEditPostfix = QtWidgets.QLineEdit(Form)
+        self.lineEditPostfix.setEnabled(True)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Ignored, QtWidgets.QSizePolicy.Fixed)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.lineEditPostfix.sizePolicy().hasHeightForWidth())
+        self.lineEditPostfix.setSizePolicy(sizePolicy)
+        self.lineEditPostfix.setObjectName("lineEditPostfix")
+        self.verticalLayout.addWidget(self.lineEditPostfix)
+        self.pushButtonAdd = QtWidgets.QPushButton(Form)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Fixed)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.pushButtonAdd.sizePolicy().hasHeightForWidth())
+        self.pushButtonAdd.setSizePolicy(sizePolicy)
+        self.pushButtonAdd.setObjectName("pushButtonAdd")
+        self.verticalLayout.addWidget(self.pushButtonAdd)
+        self.pushButtonDel = QtWidgets.QPushButton(Form)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Fixed)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.pushButtonDel.sizePolicy().hasHeightForWidth())
+        self.pushButtonDel.setSizePolicy(sizePolicy)
+        self.pushButtonDel.setObjectName("pushButtonDel")
+        self.verticalLayout.addWidget(self.pushButtonDel)
+        spacerItem2 = QtWidgets.QSpacerItem(20, 40, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding)
+        self.verticalLayout.addItem(spacerItem2)
+        self.horizontalLayout.addLayout(self.verticalLayout)
+        self.tableWidgetDest = QtWidgets.QTableWidget(Form)
+        self.tableWidgetDest.setObjectName("tableWidgetDest")
+        self.tableWidgetDest.setColumnCount(0)
+        self.tableWidgetDest.setRowCount(0)
+        self.horizontalLayout.addWidget(self.tableWidgetDest)
+        self.verticalLayout_2.addLayout(self.horizontalLayout)
+        self.textEditShow = QtWidgets.QTextEdit(Form)
+        self.textEditShow.setObjectName("textEditShow")
+        self.verticalLayout_2.addWidget(self.textEditShow)
+
+        self.retranslateUi(Form)
+        self.pushButtonOpen.clicked.connect(Form.openPatchFiles)
+        self.lineEditPostfix.textChanged['QString'].connect(Form.changePostfix)
+        self.pushButtonAdd.clicked.connect(Form.addSelectFunctions)
+        self.pushButtonDel.clicked.connect(Form.delSelectFunctions)
+        QtCore.QMetaObject.connectSlotsByName(Form)
+
+    def retranslateUi(self, Form):
+        _translate = QtCore.QCoreApplication.translate
+        Form.setWindowTitle(_translate("Form", "Form"))
+        self.pushButtonOpen.setText(_translate("Form", "打开"))
+        self.pushButtonAdd.setText(_translate("Form", ">>"))
+        self.pushButtonDel.setText(_translate("Form", "<<"))
+
