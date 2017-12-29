@@ -6,20 +6,15 @@ from PyQt5.QtWidgets import QFileDialog
 from clang.cindex import Index, CursorKind
 from xml.etree import ElementTree
 
-class CommentedTreeBuilder(ElementTree.XMLTreeBuilder):
-    def __init__(self, html = 0, target = None ):
-        ElementTree.XMLTreeBuilder.__init__( self, html, target )
+class CommentedTreeBuilder(ElementTree.TreeBuilder):
+    def __init__(self, html = 0, target = None):
+        ElementTree.TreeBuilder.__init__(self, html, target)
         self._parser.CommentHandler = self.handle_comment
-    
-    def handle_comment ( self, data ):
-        self._target.start( ElementTree.Comment, {} )
-        self._target.data( data )
-        self._target.end( ElementTree.Comment )
 
-
-with open( 'test.xml', 'r' ) as f:
-    xml = ElementTree.parse( f, parser = CommentedTreeBuilder() )
-ElementTree.dump( xml )
+    def handle_comment(self, data):
+        self._target.start(ElementTree.Comment, {})
+        self._target.data(data)
+        self._target.end(ElementTree.Comment)
 
 class MainWindow(QtWidgets.QWidget, Ui_Form):
     def __init__(self):
@@ -41,7 +36,7 @@ class MainWindow(QtWidgets.QWidget, Ui_Form):
                                                  "C Files (*.c);;All Files (*)")
         index = Index.create()
         for patch_file in files:
-            tu = index.parse(patch_file)
+            tu = index.parse(patch_file, parser = CommentedTreeBuilder())
             tu_node = tu.cursor.get_children()
             for cursor in tu_node:
                 if cursor.kind == CursorKind.FUNCTION_DECL and cursor.is_definition():
@@ -71,10 +66,11 @@ class MainWindow(QtWidgets.QWidget, Ui_Form):
                                                  "选择cmd.xml文件",
                                                  "C:/",
                                                  "XML Files (*.xml)")
-        self.tree = ElementTree.parse(file)
-        print(ElementTree.dump(self.tree))
-        lprocess = self.tree.getiterator('process')
-        self.comboBoxSelSecXml.addItems([process.text for process in lprocess])
+        if file:
+            self.tree = ElementTree.parse(file)
+            print(ElementTree.dump(self.tree))
+            lprocess = self.tree.getiterator('process')
+            self.comboBoxSelSecXml.addItems([process.text for process in lprocess])
 
     def selXmlSection(self, section):
         self.section = section
