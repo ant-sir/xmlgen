@@ -13,13 +13,16 @@
   <property name="windowTitle">
    <string>xmlgen</string>
   </property>
-  <layout class="QVBoxLayout" name="verticalLayout_2">
+  <layout class="QVBoxLayout" name="verticalLayout_3">
    <item>
     <layout class="QHBoxLayout" name="horizontalLayout">
      <item>
       <widget class="QTableWidget" name="tableWidgetSource">
+       <property name="editTriggers">
+        <set>QAbstractItemView::NoEditTriggers</set>
+       </property>
        <property name="rowCount">
-        <number>9</number>
+        <number>0</number>
        </property>
        <property name="columnCount">
         <number>1</number>
@@ -30,15 +33,6 @@
        <attribute name="verticalHeaderStretchLastSection">
         <bool>false</bool>
        </attribute>
-       <row/>
-       <row/>
-       <row/>
-       <row/>
-       <row/>
-       <row/>
-       <row/>
-       <row/>
-       <row/>
        <column>
         <property name="text">
          <string>Function name</string>
@@ -73,7 +67,7 @@
           <enum>Qt::DefaultContextMenu</enum>
          </property>
          <property name="text">
-          <string>打开</string>
+          <string>Open</string>
          </property>
         </widget>
        </item>
@@ -146,8 +140,11 @@
      </item>
      <item>
       <widget class="QTableWidget" name="tableWidgetDest">
+       <property name="editTriggers">
+        <set>QAbstractItemView::NoEditTriggers</set>
+       </property>
        <property name="rowCount">
-        <number>9</number>
+        <number>0</number>
        </property>
        <property name="columnCount">
         <number>1</number>
@@ -155,15 +152,6 @@
        <attribute name="horizontalHeaderStretchLastSection">
         <bool>true</bool>
        </attribute>
-       <row/>
-       <row/>
-       <row/>
-       <row/>
-       <row/>
-       <row/>
-       <row/>
-       <row/>
-       <row/>
        <column>
         <property name="text">
          <string>New function name</string>
@@ -174,7 +162,52 @@
     </layout>
    </item>
    <item>
-    <widget class="QTextEdit" name="textEditShow"/>
+    <layout class="QHBoxLayout" name="horizontalLayout_2">
+     <item>
+      <widget class="QTextEdit" name="textEditShow"/>
+     </item>
+     <item>
+      <layout class="QVBoxLayout" name="verticalLayout_2">
+       <item>
+        <widget class="QPushButton" name="pushButtonOpenXml">
+         <property name="text">
+          <string>OpenXml</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QComboBox" name="comboBoxSelSecXml"/>
+       </item>
+       <item>
+        <widget class="QPushButton" name="pushButtonGenXml">
+         <property name="text">
+          <string>Generate</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="pushButtonSaveXml">
+         <property name="text">
+          <string>Save</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <spacer name="verticalSpacer_4">
+         <property name="orientation">
+          <enum>Qt::Vertical</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>20</width>
+           <height>40</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+      </layout>
+     </item>
+    </layout>
    </item>
   </layout>
  </widget>
@@ -244,11 +277,128 @@
     </hint>
    </hints>
   </connection>
+  <connection>
+   <sender>tableWidgetSource</sender>
+   <signal>cellChanged(int,int)</signal>
+   <receiver>Form</receiver>
+   <slot>setLineEditText()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>181</x>
+     <y>159</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>406</x>
+     <y>302</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>tableWidgetSource</sender>
+   <signal>cellDoubleClicked(int,int)</signal>
+   <receiver>Form</receiver>
+   <slot>addSelectFunctions()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>259</x>
+     <y>121</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>377</x>
+     <y>317</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>tableWidgetDest</sender>
+   <signal>cellDoubleClicked(int,int)</signal>
+   <receiver>Form</receiver>
+   <slot>delSelectFunctions()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>573</x>
+     <y>190</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>359</x>
+     <y>313</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButtonOpenXml</sender>
+   <signal>clicked()</signal>
+   <receiver>Form</receiver>
+   <slot>openXmlFile()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>740</x>
+     <y>338</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>813</x>
+     <y>348</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>comboBoxSelSecXml</sender>
+   <signal>currentTextChanged(QString)</signal>
+   <receiver>Form</receiver>
+   <slot>selXmlSection()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>753</x>
+     <y>382</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>811</x>
+     <y>399</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButtonGenXml</sender>
+   <signal>clicked()</signal>
+   <receiver>Form</receiver>
+   <slot>genXmlText()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>781</x>
+     <y>426</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>809</x>
+     <y>439</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButtonSaveXml</sender>
+   <signal>clicked()</signal>
+   <receiver>Form</receiver>
+   <slot>saveXmlFile()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>771</x>
+     <y>464</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>813</x>
+     <y>487</y>
+    </hint>
+   </hints>
+  </connection>
  </connections>
  <slots>
   <slot>openPatchFiles()</slot>
   <slot>changePostfix()</slot>
   <slot>addSelectFunctions()</slot>
   <slot>delSelectFunctions()</slot>
+  <slot>setLineEditText()</slot>
+  <slot>genXmlText()</slot>
+  <slot>openXmlFile()</slot>
+  <slot>saveXmlFile()</slot>
+  <slot>selXmlSection()</slot>
  </slots>
 </ui>
