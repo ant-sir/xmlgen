@@ -6,15 +6,10 @@ from PyQt5.QtWidgets import QFileDialog
 from clang.cindex import Index, CursorKind
 from xml.etree import ElementTree
 
-class CommentedTreeBuilder(ElementTree.TreeBuilder):
-    def __init__(self, html = 0, target = None):
-        ElementTree.TreeBuilder.__init__(self, html, target)
-        self._parser.CommentHandler = self.handle_comment
-
-    def handle_comment(self, data):
-        self._target.start(ElementTree.Comment, {})
-        self._target.data(data)
-        self._target.end(ElementTree.Comment)
+import platform
+if platform.system() == 'Windows':
+    from clang.cindex import Config
+    Config.set_library_path("C:\\Program Files\\LLVM\\bin")
 
 class MainWindow(QtWidgets.QWidget, Ui_Form):
     def __init__(self):
@@ -32,11 +27,11 @@ class MainWindow(QtWidgets.QWidget, Ui_Form):
     def openPatchFiles(self):
         files, ok = QFileDialog.getOpenFileNames(self,
                                                  "选择patch文件",
-                                                 "C:/",
+                                                 "./",
                                                  "C Files (*.c);;All Files (*)")
         index = Index.create()
         for patch_file in files:
-            tu = index.parse(patch_file, parser = CommentedTreeBuilder())
+            tu = index.parse(patch_file)
             tu_node = tu.cursor.get_children()
             for cursor in tu_node:
                 if cursor.kind == CursorKind.FUNCTION_DECL and cursor.is_definition():
@@ -64,7 +59,7 @@ class MainWindow(QtWidgets.QWidget, Ui_Form):
     def openXmlFile(self):
         file, ok = QFileDialog.getOpenFileName(self,
                                                  "选择cmd.xml文件",
-                                                 "C:/",
+                                                 "./",
                                                  "XML Files (*.xml)")
         if file:
             self.tree = ElementTree.parse(file)

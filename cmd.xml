@@ -1,0 +1,933 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<catalog>
+<pch id="1000001001">                   
+<process>CHMCENTER</process>
+<type>Base</type>
+<role>role=mpu</role>
+<arch>cpu.arch=46</arch>
+<lu>lu=T_CHM</lu>	
+<cpu>t2080</cpu>                              
+<pchname>100-0001-CHMCENTER</pchname>                       
+<sourceFile num="1">chm_centeralarm_if_patch.co
+	<!--> 
+	补丁函数                          人员     时间        内容描述
+	chm_ac_dropoffalarm_patch        马天亮 2017-10-23    AC告警改为DC告警
+	<-->           	
+	<replace num="1">chm_ac_dropoffalarm_patch</replace> <replacedname>chm_ac_dropoffalarm</replacedname> <replacedaddr> </replacedaddr> 
+</sourceFile>
+<sourceFile num="2">chm_center_oamalarm_hp.co 
+	<!--> 
+	补丁函数                          人员     时间        内容描述
+	alarm_hardware_power_drop_off_alarm_power_drop_off_hp        马天亮 2017-11-3    AC告警改为DC告警网管支持  
+	alarm_hardware_power_drop_off_normal_power_drop_off_hp        马天亮 2017-11-3    AC告警改为DC告警网管支持
+	<-->           	
+	<replace num="1">alarm_hardware_power_drop_off_alarm_power_drop_off_hp</replace> <replacedname>alarm_hardware_power_drop_off_alarm_power_drop_off</replacedname> <replacedaddr> </replacedaddr> 
+	<replace num="2">alarm_hardware_power_drop_off_normal_power_drop_off_hp</replace> <replacedname>alarm_hardware_power_drop_off_normal_power_drop_off</replacedname> <replacedaddr> </replacedaddr> 
+</sourceFile> 
+<sourceFile num="3">chm_center_reload_patch.co 
+	<!--> 
+	补丁函数                          人员     时间        内容描述
+	chm_center_reloadprocess_patch        马天亮 2017-12-21    网管重启主控板时回复超时  
+	chm_center_reloadimmediately_patch        马天亮 2017-12-21    网管重启主控板时回复超时
+	<-->           	
+	<replace num="1">chm_center_reloadprocess_patch</replace> <replacedname>chm_center_reloadprocess</replacedname> <replacedaddr> </replacedaddr> 
+	<replace num="2">chm_center_reloadimmediately_patch</replace> <replacedname>chm_center_reloadimmediately</replacedname> <replacedaddr> </replacedaddr> 
+</sourceFile>
+<sourceFile num="4">chm_center_board_patch.co
+	<!--> 
+	补丁函数                          人员     时间        内容描述
+	chm_center_board_patch        余云 2017-12-22    增加意电单板过热补丁
+	<-->           	
+	<replace num="1">chm_temperature_record_patch</replace> <replacedname>chm_temperature_record</replacedname> <replacedaddr> </replacedaddr> 
+</sourceFile>
+<sourceFile num="5">chm_center_powact_patch.co
+	<!--> 
+	补丁函数                          人员     时间        内容描述
+	chm_center_board_patch        余云 2017-12-22    增加意电单板过热补丁
+	<-->           	
+	<replace num="1">chm_center_poweract_do_patch</replace> <replacedname>chm_center_poweract_do</replacedname> <replacedaddr> </replacedaddr> 
+	<replace num="2">chm_SendMsgToFnsc_patch</replace> <replacedname>chm_SendMsgToFnsc</replacedname> <replacedaddr> </replacedaddr> 
+</sourceFile>
+</pch>
+
+
+<pch id="1000001002">
+<process>OFFCFGBRDMNG</process>
+<type>Base</type>
+<role>role=mpu</role>
+<arch>cpu.arch=46</arch>
+<lu>lu=T_SC</lu>
+<cpu>t2080</cpu>
+<pchname>100-0001-OFFCFGBRDMNG</pchname>
+</pch>
+
+
+<pch id="1000001003">
+<process>FNSC_RP</process>
+<type>Mc</type>
+<role>role=mpu</role>
+<arch>cpu.arch=46</arch>
+<lu>lu=T_SC</lu>
+<cpu>t2080</cpu>
+<pchname>100-0001-FNSC_RP</pchname>
+<sourceFile num="1">sc_center_autoinsert_patch.co
+	<!--> 
+	补丁函数                             人员     时间        内容描述
+	sc_center_auto_insertmaincard_patch  李昌勇   2017-10-25  修改主机在slot11时始终有主机槽位的单板未配置告警上报问题 
+	<-->
+	 <replace num="1">sc_center_auto_insertmaincard_patch</replace> <replacedname>sc_center_auto_insertmaincard</replacedname> <replacedaddr> </replacedaddr>
+</sourceFile>
+<sourceFile num="2">vn_epld_client_patch.co
+	<!--> 
+	补丁函数                             人员     时间        内容描述
+	vn_epld_client_patch        余云 2017-12-22    增加意电单板过热补丁
+	<-->
+	 <replace num="1">FnscSlaveBoard8MinSleep_patch</replace> <replacedname>FnscSlaveBoard8MinSleep</replacedname> <replacedaddr> </replacedaddr>
+</sourceFile>	 
+	 
+</pch>      	  
+
+
+
+<pch id="1000001004">
+<process>XPON_RP</process>
+<type>Mc</type>
+<role>role=mpu</role>
+<arch>cpu.arch=46</arch>
+<lu>lu=T_RP_ROUTER</lu>
+<cpu>t2080</cpu>
+<pchname>100-0001-XPON_RP</pchname>
+<sourceFile num="1">gponrm_sa_tr069acs_patch.co 
+    <!--> 
+	补丁函数                             人员     时间        内容描述
+	GponRmTr069AcsSet_patch             胡莹岑 2017-10-24     修改远程管理模式下tr069命令网管配置tag参数后在cli下show出来不一致的问题
+	Tr069AcsEntryToSchemaEntry_patch    胡莹岑 2017-10-24     修改远程管理模式下tr069命令网管配置tag参数后在cli下show出来不一致的问题
+	<-->           	
+	<replace num="1">GponRmTr069AcsSet_patch</replace> <replacedname>GponRmTr069AcsSet</replacedname> <replacedaddr> </replacedaddr> 
+	<replace num="2">Tr069AcsEntryToSchemaEntry_patch</replace> <replacedname>Tr069AcsEntryToSchemaEntry</replacedname> <replacedaddr> </replacedaddr>
+</sourceFile>
+<sourceFile num="2">oltmng_saif_onu_lineencry_patch.co 
+    <!--> 
+	补丁函数                                  人员     时间        内容描述
+	Eponsrv_Sa_SetOnuLineEncry_patch          叶敏波 2017-10-24    epon onu下encry主背保护失败
+	<-->           	
+	<replace num="1">Eponsrv_Sa_SetOnuLineEncry_patch</replace> <replacedname>Eponsrv_Sa_SetOnuLineEncry</replacedname> <replacedaddr> </replacedaddr> 
+</sourceFile>
+<sourceFile num="3">oltmng_exec_onu_cfg_patch.co 
+    <!--> 
+	补丁函数                                  人员     时间        内容描述背保护失败
+	OltMng_EponOnuLinkEncSetFunc_patch        叶敏波 2017-10-24    epon onu下encry主背保护失败
+	OltMng_EponOnuLinkEncSetAck_patch        叶敏波 2017-10-24    epon onu下encry主背保护失败
+	<-->  
+	<replace num="1">OltMng_EponOnuLinkEncSetFunc_patch</replace> <replacedname>OltMng_EponOnuLinkEncSetFunc</replacedname> <replacedaddr> </replacedaddr>
+	<replace num="2">OltMng_EponOnuLinkEncSetAck_patch</replace> <replacedname>OltMng_EponOnuLinkEncSetAck</replacedname> <replacedaddr> </replacedaddr>
+</sourceFile>
+<sourceFile num="4">eponsrv_olt_enc_datasyn_patch.co 
+    <!--> 
+	补丁函数                             人员      时间        内容描述
+	EponSrv_OltEnc_Set_patch             叶敏波  2017-10-24    epon全局下encry主背同步失败
+	<-->           	
+	<replace num="1">EponSrv_OltEnc_Set_patch</replace> <replacedname>EponSrv_OltEnc_Set</replacedname> <replacedaddr> </replacedaddr> 
+</sourceFile>
+<sourceFile num="5">oltmng_customoam_patch.co 
+    <!--> 
+	补丁函数                             人员      时间        内容描述
+	OltMng_CustomOamSetFunc_patch        叶敏波  2017-10-24    epon全局下CustomOam主背同步失败
+	<-->           	
+	<replace num="1">OltMng_CustomOamSetFunc_patch</replace> <replacedname>OltMng_CustomOamSetFunc</replacedname> <replacedaddr> </replacedaddr> 
+</sourceFile>
+<sourceFile num="6">gponrm_sa_dhcp_ip_eth_cp.co 
+    <!--> 
+	补丁函数                             人员      时间        内容描述
+	BS_GponRmDHCPIPEthSet_cp    马铭明 2017-10-31     修改远程管理模式下DHCP-IP获取方式snmp和cli配置不一致问题
+	<-->           	
+	<replace num="1">BS_GponRmDHCPIPEthSet_cp</replace> <replacedname>BS_GponRmDHCPIPEthSet</replacedname> <replacedaddr> </replacedaddr> 
+</sourceFile>
+<sourceFile num="7">xpon_alarm_C600_patch.co 
+    <!--> 
+	补丁函数                             人员      时间        内容描述
+	XponAlarm_ReportProcess_Patch    张理慧 2017-11-22     pon非channel级别的告警channel设置无效值问题
+	<-->           	
+	<replace num="1">XponAlarm_ReportProcess_Patch</replace> <replacedname>XponAlarm_ReportProcess</replacedname> <replacedaddr> </replacedaddr> 
+</sourceFile>	
+</pch>
+
+
+<pch id="1000001005">
+<process>XPON_LP</process>
+<type>Lc</type>
+<role>role=pfu</role>
+<arch>cpu.arch=45</arch>
+<lu>lu=T_LP_ROUTER</lu>
+<cpu>t1020</cpu>
+<pchname>100-0001-XPON_LP</pchname>
+<sourceFile num="1">gponrmon_datasync_cfg_voip_ip_patch.co 
+    <!--> 
+	补丁函数                                  人员     时间        内容描述
+	GponRmonDataSynSetCfgVoipIp_patch            朱爱锋 2017-10-24    去掉线卡printf打印
+	<-->  
+	<replace num="1">GponRmonDataSynSetCfgVoipIp_patch</replace> <replacedname>GponRmonDataSynSetCfgVoipIp</replacedname> <replacedaddr> </replacedaddr>
+</sourceFile>
+<sourceFile num="2">gponrmon_datasync_wan_ip_cfg_patch.co 
+    <!--> 
+	补丁函数                                  人员     时间        内容描述
+	GponRmonDataSynSetWanIpCfg_patch            朱爱锋 2017-10-24    去掉线卡printf打印
+	<-->  
+	<replace num="1">GponRmonDataSynSetWanIpCfg_patch</replace> <replacedname>GponRmonDataSynSetWanIpCfg</replacedname> <replacedaddr> </replacedaddr>
+</sourceFile>
+<sourceFile num="3">gponrmon_datasync_gem_port_patch.co 
+    <!--> 
+	补丁函数                                  人员     时间        内容描述
+	GponRmonDataSynSetGemPortTrafficLimit_patch            朱爱锋 2017-10-24    去掉线卡printf打印
+	<-->  
+	<replace num="1">GponRmonDataSynSetGemPortTrafficLimit_patch</replace> <replacedname>GponRmonDataSynSetGemPortTrafficLimit</replacedname> <replacedaddr> </replacedaddr>
+</sourceFile>
+<sourceFile num="4">gponrmon_datasync_unibcastratelimit_patch.co 
+    <!--> 
+	补丁函数                                  人员     时间        内容描述
+	GponRmonDataSynSetUniBCastRateLimit_patch            朱爱锋 2017-10-24    去掉线卡printf打印
+	<-->  
+	<replace num="1">GponRmonDataSynSetUniBCastRateLimit_patch</replace> <replacedname>GponRmonDataSynSetUniBCastRateLimit</replacedname> <replacedaddr> </replacedaddr>
+</sourceFile>
+<sourceFile num="5">omci_alarm_handle_patch.co 
+    <!--> 
+	补丁函数                                  人员     时间        内容描述
+	OmciAlarmNotiHandler_patch            马铭明 2017-10-30    omci告警上报异常补丁
+	<-->  
+	<replace num="1">OmciAlarmNotiHandler_patch</replace> <replacedname>OmciAlarmNotiHandler</replacedname> <replacedaddr> </replacedaddr>
+</sourceFile>
+<sourceFile num="6">gpon_rmon_data_patch.co 
+    <!--> 
+	补丁函数                                  人员     时间        内容描述
+	GponRm_GetReqNo_Patch            郁永明 2017-10-30    show gpon onu state乱码补丁
+	<-->  
+	<replace num="1">GponRm_GetReqNo_Patch</replace> <replacedname>GponRm_GetReqNo</replacedname> <replacedaddr> </replacedaddr>
+</sourceFile>
+<sourceFile num="7">omcitxrxmsgprocfunc_patch.co 
+    <!--> 
+	补丁函数                                  人员     时间        内容描述
+	Sub_OmciRxResp_patch                     马铭明 2017-11-20    omci告警上报异常补丁
+	<-->  
+	<replace num="1">Sub_OmciRxResp_patch</replace> <replacedname>Sub_OmciRxResp</replacedname> <replacedaddr> </replacedaddr>
+</sourceFile>
+<sourceFile num="8">omcialmsyncprocfunc_patch.co 
+    <!--> 
+	补丁函数                                  人员     时间        内容描述
+	omciGetAllAlmNextRespHandler_patch       马铭明 2017-11-20    omci告警上报异常补丁
+	<-->  
+	<replace num="1">omciGetAllAlmNextRespHandler_patch</replace> <replacedname>omciGetAllAlmNextRespHandler</replacedname> <replacedaddr> </replacedaddr>
+</sourceFile>
+<sourceFile num="9">omcireceivefunc_patch.co 
+    <!--> 
+	补丁函数                                  人员     时间        内容描述
+	OmciRecv_HandleNotificationMsg_patch     马铭明 2017-11-20    omci告警上报异常补丁
+	<--> 
+	<replace num="1">OmciRecv_HandleNotificationMsg_patch</replace> <replacedname>OmciRecv_HandleNotificationMsg</replacedname> <replacedaddr> </replacedaddr>
+</sourceFile>
+<sourceFile num="10">epon_ssp_alarm_restoretimer_patch.co 
+    <!--> 
+	补丁函数                                  人员     时间        内容描述
+	OmciRecv_HandleNotificationMsg_patch     马铭明 2017-11-20    omci告警上报异常补丁
+	<--> 
+	<replace num="1">EponSspAlmPonLosDelay_Patch</replace> <replacedname>EponSspAlmPonLosDelay</replacedname> <replacedaddr> </replacedaddr>
+</sourceFile>
+<sourceFile num="11">epon_ssp_alarm_patch.co 
+    <!--> 
+	补丁函数                                  人员     时间        内容描述
+	OmciRecv_HandleNotificationMsg_patch     马铭明 2017-11-20    omci告警上报异常补丁
+	<--> 
+	<replace num="1">EponSspAlmReportForDRV_Patch</replace> <replacedname>EponSspAlmReportForDRV</replacedname> <replacedaddr> </replacedaddr>
+    <replace num="2">EponSspAlarmReportForRm_Patch</replace> <replacedname>EponSspAlarmReportForRm</replacedname> <replacedaddr> </replacedaddr>
+    <replace num="3">EponSspAlmReportForOAM_Patch</replace> <replacedname>EponSspAlmReportForOAM</replacedname> <replacedaddr> </replacedaddr>
+    <replace num="4">EponSspAlmReportForNormal_Patch</replace> <replacedname>EponSspAlmReportForNormal</replacedname> <replacedaddr> </replacedaddr>
+</sourceFile>
+<sourceFile num="12">xpon_lp_alarm_msg_patch.co 
+    <!--> 
+	补丁函数                                  人员     时间        内容描述
+	Xpon_NpAlarm_ReportProcess_Patch     张理慧 2017-11-22    pon非channel级别的告警channel设置无效值问题
+	<--> 
+	<replace num="1">Xpon_NpAlarm_ReportProcess_Patch</replace> <replacedname>Xpon_NpAlarm_ReportProcess</replacedname> <replacedaddr> </replacedaddr>
+</sourceFile>
+<sourceFile num="13">xpon_alarm_table_c600_patch.co 
+    <!--> 
+	补丁函数                                  人员     时间        内容描述
+	Xpon_NpAlarm_ReportProcess_Patch     张理慧 2017-11-22    pon非channel级别的告警channel设置无效值问题
+	<--> 
+	<replace num="1">Xpon_Get_Alarm_Table_Patch</replace> <replacedname>Xpon_Get_Alarm_Table</replacedname> <replacedaddr> </replacedaddr>
+</sourceFile>
+</pch>
+
+
+<pch id="1000001006">
+<process>MIM</process>
+<type>Base</type>
+<role>role=mpu</role>
+<arch>cpu.arch=46</arch>
+<lu>lu=T_RP_ROUTER</lu>
+<cpu>t2080</cpu>
+<pchname>100-0001-MIM</pchname>
+<sourceFile num="1">gponrm_tr069acs_mimcheck_patch.co 
+    <!--> 
+	补丁函数                                    人员     时间        内容描述
+	gponrm_Mib_tr069AcsObjDataAndMask_patch    胡莹岑 2017-10-24     修改远程管理模式下tr069命令网管配置tag参数后在cli下show出来不一致的问题
+	<-->           	
+	<replace num="1">gponrm_Mib_tr069AcsObjDataAndMask_patch</replace> <replacedname>gponrm_Mib_tr069AcsObjDataAndMask</replacedname> <replacedaddr> </replacedaddr> 
+</sourceFile>
+<sourceFile num="2">gponrm_dhcp_ip_eth_mimcheck_cp.co 
+    <!--> 
+	补丁函数                                    人员     时间        内容描述
+	gponrm_dhcpipeth_mim_check_cp    马铭明 2017-10-31     修改远程管理模式下DHCP-IP获取方式snmp和cli配置不一致问题
+	<-->           	
+	<replace num="1">gponrm_dhcpipeth_mim_check_cp</replace> <replacedname>gponrm_dhcpipeth_mim_check</replacedname><replacedaddr> </replacedaddr>
+</sourceFile>
+<sourceFile num="3">pdconf_check_attr_hp.co
+    <!--> 
+	补丁函数                        人员        时间        内容描述
+	pdconfNegotionInnerCfg        秦胜杰    2017-11-1      C600V1.0 830分支，切强制恢复用户配置速率
+	<-->  
+	<replace num="1">pdconfNegotionInnerCfg_hp</replace> <replacedname>pdconfNegotionInnerCfg</replacedname><replacedaddr> </replacedaddr>
+</sourceFile>
+<sourceFile num="4">msvlan_mimcheck_snmp_patch.co 
+	<!--> 
+	补丁函数                                    人员     时间        内容描述
+	MsVlan_SwitchVlanMimCheck_Snmp_patch    栾梦云 017-11-23     修改网管配置聚合组vlan失败的问题
+	<-->  
+	<replace num="1">MsVlan_SwitchVlanMimCheck_Snmp_patch</replace> <replacedname>MsVlan_SwitchVlanMimCheck_Snmp</replacedname><replacedaddr> </replacedaddr>
+</sourceFile>
+</pch>
+
+
+<pch id="1000001007">
+<process>INTERPRET</process>
+<type>Base</type>
+<role>role=mpu</role>
+<arch>cpu.arch=46</arch>
+<lu>lu=T_RP_ROUTER</lu>
+<cpu>t2080</cpu>
+<pchname>100-0001-INTERPRET</pchname>
+<sourceFile num="1">gponrm_veip_showrun_Intf_patch.co 
+    <!--> 
+	补丁函数                              人员     时间        内容描述
+	Gponrm_Veip_ShowRunMapToStr_patch    胡莹岑 2017-10-24     修改veip配置tcp 9090但查看配置的时候会变成UDP 9090的问题
+	<-->           	
+	<replace num="1">Gponrm_Veip_ShowRunMapToStr_patch</replace> <replacedname>Gponrm_Veip_ShowRunMapToStr</replacedname> <replacedaddr> </replacedaddr>
+</sourceFile>
+</pch>
+
+
+<pch id="1000001008">
+<process>SNMP</process>
+<type>Mc</type>
+<role>role=mpu</role>
+<arch>cpu.arch=46</arch>
+<lu>lu=T_RP_ROUTER</lu>
+<cpu>t2080</cpu>
+<pchname>100-0001-SNMP</pchname>
+</pch>
+
+
+
+<pch id="1000001009">
+<process>IAP_LP</process>
+<type>Lc</type>
+<role>role=pfu</role>
+<arch>cpu.arch=45</arch>
+<lu>lu=T_LP_ROUTER</lu>
+<cpu>t1020</cpu>
+<pchname>100-0001-IAP_LP</pchname>
+<sourceFile num="1">pppoecomm_dealtag_hp.co
+	<!--> 
+	补丁函数            人员     时间        内容描述
+	MsPppoeComm_EncapGenericErrorPkt_hp        韩小虎    2017-10-30   C600V1.0 830分支，pppoe内存越界 pppoecomm_dealtag 补丁函数
+	MsPppoeComm_AddPortlocTag_hp               韩小虎    2017-10-30   C600V1.0 830分支，pppoe内存越界 pppoecomm_dealtag 补丁函数
+	<-->           	
+	<replace num="1">MsPppoeComm_EncapGenericErrorPkt_hp</replace> <replacedname>MsPppoeComm_EncapGenericErrorPkt</replacedname> <replacedaddr> </replacedaddr>
+	<replace num="2">MsPppoeComm_AddPortlocTag_hp</replace> <replacedname>MsPppoeComm_AddPortlocTag</replacedname> <replacedaddr> </replacedaddr> 
+</sourceFile>
+<sourceFile num="2">msmcast_accessctrl_hp.co
+	<!--> 
+	补丁函数            人员     时间        内容描述
+	Mcast_IsGroupExistInPort_hp    朱艳雷    2017-10-30   C600V1.0 830分支，组播带宽控制 Mcast_IsGroupExistInPort 补丁函数
+	<-->           	
+	<replace num="1">Mcast_IsGroupExistInPort_hp</replace> <replacedname>Mcast_IsGroupExistInPort</replacedname> <replacedaddr> </replacedaddr>
+</sourceFile>
+<sourceFile num="3">msigmp_np_rx_patch.co
+	<!-->
+	补丁函数            人员     时间        内容描述
+	Igmp_NpRcvPkt_patch    朱艳雷    2017-11-18   C600V1.0 830分支，组播处理最大报文长度 Igmp_NpRcvPkt 补丁函数
+	<-->
+	<replace num="1">Igmp_NpRcvPkt_patch</replace> <replacedname>Igmp_NpRcvPkt</replacedname> <replacedaddr> </replacedaddr>
+</sourceFile>
+<sourceFile num="4">msmld_np_rx_patch.co
+	<!-->
+	补丁函数            人员     时间        内容描述
+	Mld_NpRcvPkt_patch    朱艳雷    2017-11-18   C600V1.0 830分支，组播处理最大报文长度 Mld_NpRcvPkt 补丁函数
+	<-->
+	<replace num="1">Mld_NpRcvPkt_patch</replace> <replacedname>Mld_NpRcvPkt</replacedname> <replacedaddr> </replacedaddr>
+</sourceFile>
+<sourceFile num="5">msmcast_np_main_patch.co
+	 <!--> 
+	补丁函数                             人员     时间        内容描述
+	Mcast_NpSysHandler_patch             徐向东   2017-12-23  C600V1.0 830分支，组播聚合组支持接收端口 补丁函数
+	<-->           	
+	    <replace num="1">Mcast_NpSysHandler_patch</replace> <replacedname>Mcast_NpSysHandler</replacedname> <replacedaddr> </replacedaddr>
+</sourceFile>
+<sourceFile num="6">msmcast_np_tx_patch.co
+	 <!--> 
+	补丁函数                             人员     时间        内容描述
+	Mcast_NpPktSend_patch                徐向东   2017-12-23  C600V1.0 830分支，组播聚合组支持接收端口 补丁函数
+	<-->           	
+	    <replace num="1">Mcast_NpPktSend_patch</replace> <replacedname>Mcast_NpPktSend</replacedname> <replacedaddr> </replacedaddr>
+</sourceFile>
+<sourceFile num="7">msmcast_np_mux_patch.co
+	 <!--> 
+	补丁函数                             人员     时间        内容描述
+	Mcast_NpSetPortBitMap_patch          徐向东   2017-12-23  C600V1.0 830分支，组播聚合组支持接收端口 补丁函数
+	Mcast_NpClearPortBitMap_patch        徐向东   2017-12-23  C600V1.0 830分支，组播聚合组支持接收端口 补丁函数
+	<-->
+	    <replace num="1">Mcast_NpSetPortBitMap_patch</replace> <replacedname>Mcast_NpSetPortBitMap</replacedname> <replacedaddr> </replacedaddr>
+	    <replace num="2">Mcast_NpClearPortBitMap_patch</replace> <replacedname>Mcast_NpClearPortBitMap</replacedname> <replacedaddr> </replacedaddr>
+</sourceFile>
+<sourceFile num="8">msigmp_np_main_patch.co
+	 <!--> 
+	补丁函数                             人员     时间        内容描述
+	MsIgmp_NpSysHandler_patch            徐向东   2017-12-23  C600V1.0 830分支，组播聚合组支持接收端口 补丁函数
+	<-->           	
+	    <replace num="1">MsIgmp_NpSysHandler_patch</replace> <replacedname>MsIgmp_NpSysHandler</replacedname> <replacedaddr> </replacedaddr>
+</sourceFile>
+<sourceFile num="9">msmld_np_main_patch.co
+	 <!--> 
+	补丁函数                             人员     时间        内容描述
+	MsMld_NpSysHandler_patch             徐向东   2017-12-23  C600V1.0 830分支，组播聚合组支持接收端口 补丁函数
+	<-->
+	    <replace num="1">MsMld_NpSysHandler_patch</replace> <replacedname>MsMld_NpSysHandler</replacedname> <replacedaddr> </replacedaddr>
+</sourceFile>
+<sourceFile num="10">msmcast_rx_patch_np.co
+	 <!--> 
+	补丁函数                             人员     时间        内容描述
+	Mcast_RxPktDispatch_patch            徐向东   2017-12-23  C600V1.0 830分支，组播聚合组支持接收端口 补丁函数
+	Mcast_ProcessPkt_patch               徐向东   2017-12-23  C600V1.0 830分支，组播聚合组支持接收端口 补丁函数
+	<-->           	
+	    <replace num="1">Mcast_RxPktDispatch_patch</replace> <replacedname>Mcast_RxPktDispatch</replacedname> <replacedaddr> </replacedaddr>
+	    <replace num="2">Mcast_ProcessPkt_patch</replace> <replacedname>Mcast_ProcessPkt</replacedname> <replacedaddr> </replacedaddr>
+</sourceFile>
+<sourceFile num="11">msmcast_dynport_patch_np.co
+	 <!--> 
+	补丁函数                             人员     时间        内容描述
+	Mcast_DelDynPortByPhyIfId_patch      徐向东   2017-12-23  C600V1.0 830分支，组播聚合组支持接收端口 补丁函数
+	<-->           	
+	    <replace num="1">Mcast_DelDynPortByPhyIfId_patch</replace> <replacedname>Mcast_DelDynPortByPhyIfId</replacedname> <replacedaddr> </replacedaddr>
+</sourceFile>
+<sourceFile num="12">msigmp_rx_patch_np.co
+	 <!--> 
+	补丁函数                             人员     时间        内容描述
+	Igmp_GetMcastInRcvPkt_patch          徐向东   2017-12-23  C600V1.0 830分支，组播聚合组支持接收端口 补丁函数
+	<-->           	
+	    <replace num="1">Igmp_GetMcastInRcvPkt_patch</replace> <replacedname>Igmp_GetMcastInRcvPkt</replacedname> <replacedaddr> </replacedaddr>
+</sourceFile>
+<sourceFile num="13">msigmp_v3_rx_patch_np.co
+	 <!--> 
+	补丁函数                             人员     时间        内容描述
+	Igmp_ProcessV3Group_patch            徐向东   2017-12-23  C600V1.0 830分支，组播聚合组支持接收端口 补丁函数
+	<-->           	
+	    <replace num="1">Igmp_ProcessV3Group_patch</replace> <replacedname>Igmp_ProcessV3Group</replacedname> <replacedaddr> </replacedaddr>
+</sourceFile>
+<sourceFile num="14">msmld_rx_patch_np.co
+	 <!--> 
+	补丁函数                             人员     时间        内容描述
+	Mld_GetMcastInRcvPkt_patch           徐向东   2017-12-23  C600V1.0 830分支，组播聚合组支持接收端口 补丁函数
+	<-->           	
+	    <replace num="1">Mld_GetMcastInRcvPkt_patch</replace> <replacedname>Mld_GetMcastInRcvPkt</replacedname> <replacedaddr> </replacedaddr>
+</sourceFile>
+<sourceFile num="15">msmld_v2_rx_patch_np.co
+	 <!--> 
+	补丁函数                             人员     时间        内容描述
+	Mld_ProcessV2Group_patch             徐向东   2017-12-23  C600V1.0 830分支，组播聚合组支持接收端口 补丁函数
+	<-->           	
+	    <replace num="1">Mld_ProcessV2Group_patch</replace> <replacedname>Mld_ProcessV2Group</replacedname> <replacedaddr> </replacedaddr>
+</sourceFile>
+<sourceFile num="16">msmcast_timer_patch_np.co
+	 <!--> 
+	补丁函数                             人员     时间        内容描述
+	Mcast_NormalTimeOut_Patch            徐向东   2017-12-23  C600V1.0 830分支，组播聚合组支持接收端口 补丁函数
+	<-->           	
+	    <replace num="1">Mcast_NormalTimeOut_Patch</replace> <replacedname>Mcast_NormalTimeOut</replacedname> <replacedaddr> </replacedaddr>
+</sourceFile>
+<sourceFile num="17">msctrl_funcs_patch_np.co
+	 <!--> 
+	补丁函数                             人员     时间        内容描述
+	MsCtrl_EventDistribute_patch         徐向东   2017-12-23  C600V1.0 830分支，组播聚合组支持接收端口 补丁函数
+	<-->           	
+	    <replace num="1">MsCtrl_EventDistribute_patch</replace> <replacedname>MsCtrl_EventDistribute</replacedname> <replacedaddr> </replacedaddr>
+</sourceFile>
+</pch>
+
+
+<pch id="1000001010">
+<process>FTM_LP</process>
+<type>Lc</type>
+<role>role=pfu</role>
+<arch>cpu.arch=45</arch>
+<lu>lu=T_CPUM</lu>
+<cpu>t1020</cpu>
+<pchname>100-0001-FTM_LP</pchname>
+<sourceFile num="1">mole_port_hp.o
+	<!--> 
+	补丁函数            人员     时间        内容描述
+	mole_protocol_pkt_trap_dir_set_pch_01        罗海军    2017-10-24    C600V1.0 830分支，意电TIM mole_protocol_pkt_trap_dir_set 补丁函数
+	<-->           	
+	<replace num="1">mole_protocol_pkt_trap_dir_set_pch_01</replace> <replacedname>mole_protocol_pkt_trap_dir_set</replacedname> <replacedaddr> </replacedaddr> 
+	<!--> 
+	补丁函数            人员     时间        内容描述
+	mole_trap_limit_set_hp        罗海军    2017-10-24    C600V1.0 830分支，意电TIM _mole_trap_limit_set 补丁函数
+	<-->           	
+	<replace num="2">mole_trap_limit_set_hp</replace> <replacedname>_mole_trap_limit_set</replacedname> <replacedaddr> </replacedaddr>
+</sourceFile>
+<sourceFile num="2">msif_drvport_lp_hp.co
+	<!--> 
+	补丁函数            人员     时间        内容描述
+	Comm_FtmGetDrvPort_EthIf_hp        沈林林    2017-10-24    C600V1.0 830分支，ptp后24口vport映射关系修改
+    Comm_FtmGetIf_DrvPort_hp   沈林林    2017-10-24    C600V1.0 830分支，ptp后24口vport映射关系修改
+	<-->           	
+	<replace num="1">Comm_FtmGetDrvPort_EthIf_hp</replace> <replacedname>Comm_FtmGetDrvPort_EthIf</replacedname> <replacedaddr> </replacedaddr>
+    <replace num="2">Comm_FtmGetIf_DrvPort_hp</replace> <replacedname>Comm_FtmGetIf_DrvPort</replacedname> <replacedaddr> </replacedaddr>
+</sourceFile>
+<sourceFile num="3">msvlan_ftm_xcon_mux_hp.co
+    <!--> 
+	补丁函数                           人员     时间        内容描述
+	FtmVlan_AddVsiidXconDrvRw_Check_hp 武治平   2017-11-08  C600V1.0 830分支，vlan-connect反复删加设置驱动失败
+	<-->           	
+	<replace num="1">FtmVlan_AddVsiidXconDrvRw_Check_hp</replace> <replacedname>FtmVlan_AddVsiidXconDrvRw_Check</replacedname> <replacedaddr> </replacedaddr>
+</sourceFile>
+<sourceFile num="4">soc_port_patch.o
+	<!--> 
+	补丁函数            人员     时间        内容描述
+	soc_port_set_auto_nego_patch        罗海军    2017-11-10    C600V1.0 830分支，意电TIM soc_port_set_auto_nego 补丁函数
+	soc_port_serdes_core_rx_lane_reset_patch        罗海军    2017-12-17    C600V1.0 830分支，意电TIM soc_port_serdes_core_rx_lane_reset 补丁函数
+	<-->           	
+	<replace num="1">soc_port_set_auto_nego_patch</replace> <replacedname>soc_port_set_auto_nego</replacedname> <replacedaddr> </replacedaddr>
+	<replace num="2">soc_port_serdes_core_rx_lane_reset_patch</replace> <replacedname>soc_port_serdes_core_rx_lane_reset</replacedname> <replacedaddr> </replacedaddr>
+</sourceFile>
+<sourceFile num="5">mole_vlan_patch.o
+	<!--> 
+	补丁函数            人员     时间        内容描述
+	soc_port_set_auto_nego_patch        罗海军    2017-11-10    C600V1.0 830分支，意电TIM soc_port_set_auto_nego 补丁函数
+	<-->           	
+	<replace num="1">mole_vlan_xconnect_table_set</replace> <replacedname>_mole_vlan_xconnect_table_set</replacedname> <replacedaddr> </replacedaddr>
+ </sourceFile>
+<sourceFile num="6">drv_init_patch.o
+	<!--> 
+	补丁函数            人员     时间        内容描述
+	drv_init_hp        罗海军    2017-11-10    C600V1.0 830分支，意电TIM drv_init 补丁函数
+	<-->           	
+	<replace num="1">drv_init_hp</replace> <replacedname>drv_init</replacedname> <replacedaddr> </replacedaddr>
+</sourceFile>
+<sourceFile num="7">drv_socket_patch.o
+	<!--> 
+	补丁函数            人员     时间        内容描述
+	drv_rpc_process_hp        罗海军    2017-11-10    C600V1.0 830分支，意电TIM drv_rpc_process 补丁函数
+	<-->           	
+	<replace num="1">drv_rpc_process_hp</replace> <replacedname>_drv_rpc_process</replacedname> <replacedaddr> </replacedaddr>
+</sourceFile>
+<sourceFile num="8">macdrv_ex_alarm_patch.co
+	<!--> 
+	补丁函数            人员     时间        内容描述
+	DRV_DetectOnuAlarmLosi_patch        徐海波    2017-11-21    C600V1.0 830分支，意电TIM DRV_DetectOnuAlarmLosi 补丁函数
+	<-->           	
+	<replace num="1">DRV_DetectOnuAlarmLosi_patch</replace> <replacedname>DRV_DetectOnuAlarmLosi</replacedname> <replacedaddr> </replacedaddr>
+</sourceFile>
+<sourceFile num="9">auth_pwhandleprocess_patch.co
+	 <!--> 
+	补丁函数            人员     时间        内容描述
+	handleOnuAuthFailedEvent_patch        王石林 2017-11-27 C600V1.0 830分支，意电TIM handleOnuAuthFailedEvent 补丁函数
+	<-->           	
+	    <replace num="1">handleOnuAuthFailedEvent_patch</replace> <replacedname>handleOnuAuthFailedEvent</replacedname> <replacedaddr> </replacedaddr>
+</sourceFile>
+<sourceFile num="10">drv_dispatch_patch.o
+	 <!--> 
+	补丁函数            人员     时间        内容描述
+	Ddrv_api_call_patch        罗海军    2017-11-21    C600V1.0 830分支，意电TIM drv_api_call 补丁函数
+	<-->           	
+	<replace num="1">drv_api_call_patch</replace> <replacedname>drv_api_call</replacedname> <replacedaddr> </replacedaddr> 
+</sourceFile> 
+<sourceFile num="11">ftmchiptempfunc_lp_patch.co
+	    <replace num="1">NpChipTempGet_patch</replace> <replacedname>NpChipTempGet</replacedname> <replacedaddr> </replacedaddr>
+		<replace num="2">CpuTempGet_patch</replace> <replacedname>CpuTempGet</replacedname> <replacedaddr> </replacedaddr>
+</sourceFile>
+<sourceFile num="12">xpdrv_adapter_cb_patch.co
+	 <!--> 
+	补丁函数            人员     时间        内容描述
+	XponDrv_Alm_Report_patch        王石林 2017-12-20 C600V1.0 830分支，意电TIM XponDrv_Alm_Report 补丁函数
+	<-->           	
+	    <replace num="1">XponDrv_Alm_Report_patch</replace> <replacedname>XponDrv_Alm_Report</replacedname> <replacedaddr> </replacedaddr>
+</sourceFile>
+<sourceFile num="13">mpcp_mux_drv_patch.co
+	 <!--> 
+	补丁函数            人员     时间        内容描述
+	MpcpDrv_Send_RegisterPdu_patch        王石林 2017-12-20 C600V1.0 830分支，意电TIM MpcpDrv_Send_RegisterPdu 补丁函数
+	<-->           	
+	    <replace num="1">MpcpDrv_Send_RegisterPdu_patch</replace> <replacedname>MpcpDrv_Send_RegisterPdu</replacedname> <replacedaddr> </replacedaddr>
+</sourceFile>
+<sourceFile num="14">xp_soc_pkt_patch.co
+	 <!--> 
+	补丁函数            人员     时间        内容描述
+	xp_soc_pkt_send_patch        张良军 2017-12-20 C600V1.0 830分支，意电TIM xp_soc_pkt_send 补丁函数
+	<-->           	
+	    <replace num="1">xp_soc_pkt_send_patch</replace> <replacedname>xp_soc_pkt_send</replacedname> <replacedaddr> </replacedaddr>
+</sourceFile>
+</pch>
+
+
+<pch id="1000001011">
+<process>FTM_SFUL</process>
+<type>Mc</type>
+<role>role=mpu</role>
+<arch>cpu.arch=46</arch>
+<lu>lu=T_CPUM</lu>
+<cpu>t2080</cpu>
+<pchname>100-0001-FTM_SFUL</pchname>
+<sourceFile num="1">msif_drvport_hp.co
+	<!--> 
+	补丁函数            人员     时间        内容描述
+	Comm_FtmGetDrvPort_EthIf_hp        沈林林    2017-10-24    C600V1.0 830分支，ptp后24口vport映射关系修改
+    Comm_FtmGetIf_DrvPort_hp   沈林林    2017-10-24    C600V1.0 830分支，ptp后24口vport映射关系修改
+	<-->           	
+	<replace num="1">Comm_FtmGetDrvPort_EthIf_hp</replace> <replacedname>Comm_FtmGetDrvPort_EthIf</replacedname> <replacedaddr> </replacedaddr>
+    <replace num="2">Comm_FtmGetIf_DrvPort_hp</replace> <replacedname>Comm_FtmGetIf_DrvPort</replacedname> <replacedaddr> </replacedaddr>
+</sourceFile>
+<sourceFile num="2">drv_init_patch.o
+	<!--> 
+	补丁函数            人员     时间        内容描述
+	drv_init_hp        罗海军    2017-11-10    C600V1.0 830分支，意电TIM drv_init 补丁函数
+	<-->           	
+	<replace num="1">drv_init_hp</replace> <replacedname>drv_init</replacedname> <replacedaddr> </replacedaddr>
+</sourceFile>
+<sourceFile num="3">drv_socket_patch.o
+	<!--> 
+	补丁函数            人员     时间        内容描述
+	drv_rpc_process_hp       罗海军    2017-11-27    C600V1.0 830分支，意电TIM drv_socket_create 补丁函数
+	<-->           	
+	<replace num="1">drv_rpc_process_hp</replace> <replacedname>_drv_rpc_process</replacedname> <replacedaddr> </replacedaddr>
+ </sourceFile>
+<sourceFile num="4">drv_dispatch_patch.o
+	<!--> 
+	补丁函数            人员     时间        内容描述
+	Ddrv_api_call_patch        罗海军    2017-11-21    C600V1.0 830分支，意电TIM drv_api_call 补丁函数
+	<-->           	
+	<replace num="1">drv_api_call_patch</replace> <replacedname>drv_api_call</replacedname> <replacedaddr> </replacedaddr>
+</sourceFile>
+<sourceFile num="5">mssafeguard_ftm_rp_timer_hp.co
+	<!--> 
+	补丁函数            人员     时间        内容描述
+	mssafeguard_timeout_hp     沈林林    2017-11-25    C600V1.0 830分支，主板温度过高异常复位后驱动初始化失败15分钟后自行重启本板
+	<-->           	
+	    <replace num="1">mssafeguard_timeout_hp</replace> <replacedname>mssafeguard_timeout</replacedname> <replacedaddr> </replacedaddr>
+</sourceFile>
+<sourceFile num="6">ftmchiptempfunc_rp_patch.co
+	    <replace num="1">SF3600TempGet_patch</replace> <replacedname>SF3600TempGet</replacedname> <replacedaddr> </replacedaddr>
+</sourceFile>
+<sourceFile num="7">sf3600_mole_patch.o
+	 <!--> 
+	补丁函数            人员     时间        内容描述
+	sf3600_hw_offline_enable_by_cpld_patch        陆紫艳    2017-12-13    C600V1.0 830分支，国内和意电分支 降功耗接口新增
+	sf3600_slave_board_online_patch               彭金华    2017-12-14    C600V1.0 830分支，国内和意电分支 替换板卡上线配置serdes接口
+	<-->           	
+	    <replace num="1">sf3600_hw_offline_enable_by_cpld_patch</replace> <replacedname>sf3600_hw_offline_enable_by_cpld</replacedname> <replacedaddr> </replacedaddr>
+		<replace num="2">sf3600_slave_board_online_patch</replace> <replacedname>sf3600_slave_board_online</replacedname> <replacedaddr> </replacedaddr>
+</sourceFile>		
+</pch>
+
+
+<pch id="1000001012">
+<process>RMAGENT</process>
+<type>Base</type>
+<role>role=mpu</role>
+<arch>cpu.arch=46</arch>
+<lu>lu=T_CPUM</lu>
+<cpu>t2080</cpu>
+<pchname>100-0001-RMAGENT</pchname>
+<sourceFile num="1">portmng_alarm_hp.co
+	<!--> 
+	补丁函数                        人员        时间        内容描述
+	PortMng_PortUpDown_Alarm        秦胜杰    2017-10-26      C600V1.0 830分支，屏蔽管理口告警 PORT
+	<-->  
+	<replace num="1">PortMng_PortUpDown_Alarm_hp</replace> <replacedname>PortMng_PortUpDown_Alarm</replacedname><replacedaddr> </replacedaddr>
+</sourceFile>
+</pch>
+
+
+<pch id="1000001013">
+<process>IAP_RP</process>
+<type>Mc</type>
+<role>role=mpu</role>
+<arch>cpu.arch=46</arch>
+<lu>lu=T_RP_ROUTER</lu>
+<cpu>t2080</cpu>
+<pchname>100-0001-IAP_RP</pchname>
+<sourceFile num="1">msvlan_switch_mp_sync_hp.co
+	<!--> 
+	补丁函数            人员     时间        内容描述
+	mpSmoothPortMbr_hp  武治平   2017-11-01  C600V1.0 830分支，上联口配置default vlan后删除再配tag后主备倒换业务不通问题补丁 补丁函数
+	<-->           	
+	<replace num="1">mpSmoothPortMbr_hp</replace> <replacedname>mpSmoothPortMbr</replacedname> <replacedaddr> </replacedaddr>
+</sourceFile>
+<sourceFile num="2">msanfnsc_srvacess_hp.co
+	<!--> 
+	补丁函数            人员     时间        内容描述
+	FileListEntry_GetValue_hp  王琳   2017-11-08  C600V1.0 830分支，ONU版本网元和网管时间显示不一致和增加夏令时功能 补丁函数
+	<-->           	
+	<replace num="1">FileListEntry_GetValue_hp</replace> <replacedname>FileListEntry_GetValue</replacedname> <replacedaddr> </replacedaddr>
+</sourceFile>
+<sourceFile num="3">msif_main_hp.co
+	<!--> 
+	补丁函数            人员     时间        内容描述
+	MsIf_SlaveReboot_hp  沈林林   2017-11-16  C600V1.0 830分支，主备倒换或重启pon板，物理口配置不生效问题补丁 补丁函数
+	MsIf_SlaveToMaster_hp  沈林林   2017-11-16  C600V1.0 830分支，主备倒换或重启pon板，物理口配置不生效问题补丁 补丁函数
+	MsIf_CardDown_hp  沈林林   2017-11-16  C600V1.0 830分支，主备倒换或重启pon板，物理口配置不生效问题补丁 补丁函数
+	<-->           	
+	<replace num="1">MsIf_SlaveReboot_hp</replace> <replacedname>MsIf_SlaveReboot</replacedname> <replacedaddr> </replacedaddr>
+	<replace num="2">MsIf_SlaveToMaster_hp</replace> <replacedname>MsIf_SlaveToMaster</replacedname> <replacedaddr> </replacedaddr>
+	<replace num="3">MsIf_CardDown_hp</replace> <replacedname>MsIf_CardDown</replacedname> <replacedaddr> </replacedaddr>
+</sourceFile>
+<sourceFile num="4">msdatasyn_link_mp_hp.co
+	<!--> 
+	补丁函数            人员     时间        内容描述
+	MsDataSyn_CanSynDataToCard_hp  沈林林   2017-11-16  C600V1.0 830分支，主备倒换或重启pon板，物理口配置不生效问题补丁 补丁函数
+	MsDataSyn_CanSynDataToSlave_hp  沈林林   2017-11-16  C600V1.0 830分支，主备倒换或重启pon板，物理口配置不生效问题补丁 补丁函数
+	<-->           	
+	<replace num="1">MsDataSyn_CanSynDataToCard_hp</replace> <replacedname>MsDataSyn_CanSynDataToCard</replacedname> <replacedaddr> </replacedaddr>
+	<replace num="2">MsDataSyn_CanSynDataToSlave_hp</replace> <replacedname>MsDataSyn_CanSynDataToSlave</replacedname> <replacedaddr> </replacedaddr>
+</sourceFile>
+<sourceFile num="5">msigmp_mp_rx_patch.co
+	<!-->
+	补丁函数            人员     时间        内容描述
+	Igmp_MpRcvPkt_patch    朱艳雷    2017-11-18   C600V1.0 830分支，组播处理最大报文长度 Igmp_MpRcvPkt 补丁函数
+	<-->
+	<replace num="1">Igmp_MpRcvPkt_patch</replace> <replacedname>Igmp_MpRcvPkt</replacedname> <replacedaddr> </replacedaddr>
+</sourceFile>
+<sourceFile num="6">msmld_mp_rx_patch.co
+	<!-->
+	补丁函数            人员     时间        内容描述
+	Mld_MpRcvPkt_patch    朱艳雷    2017-11-18   C600V1.0 830分支，组播处理最大报文长度 Mld_MpRcvPkt 补丁函数
+	<-->
+	<replace num="1">Mld_MpRcvPkt_patch</replace> <replacedname>Mld_MpRcvPkt</replacedname> <replacedaddr> </replacedaddr>
+</sourceFile>
+<sourceFile num="7">profilemng_common_hp.co
+	<!--> 
+	补丁函数            人员     时间        内容描述
+	MsPrfMng_ReleaseNormalProfile_hp  李丹丹   2017-11-20  C600V1.0 830分支，端口定位格式模板应用后可删除故障补丁 补丁函数
+	<-->           	
+	<replace num="1">MsPrfMng_ReleaseNormalProfile_hp</replace> <replacedname>MsPrfMng_ReleaseNormalProfile</replacedname> <replacedaddr> </replacedaddr>
+</sourceFile>
+<sourceFile num="8">profilemng_exec_format_hp.co
+	<!-->
+	补丁函数            人员     时间        内容描述
+	Exec_MsPrfMng_FormatProfileConfig_hp   李丹丹   2017-11-20  C600V1.0 830分支，端口定位格式模板应用后可删除故障补丁 补丁函数
+	<-->
+	<replace num="1">Exec_MsPrfMng_FormatProfileConfig_hp</replace> <replacedname>Exec_MsPrfMng_FormatProfileConfig</replacedname> <replacedaddr> </replacedaddr>
+</sourceFile>   
+<sourceFile num="9">msoptical_trap_patch.co
+	 <!--> 
+	补丁函数                             人员     时间        内容描述
+	MsOptical_CanSendOfflineAlarm_patch  谢志强   2017-12-18  C600V1.0 830分支，光模块告警防抖 补丁函数
+	<-->           	
+	    <replace num="1">MsOptical_CanSendOfflineAlarm_patch</replace> <replacedname>MsOptical_CanSendOfflineAlarm</replacedname> <replacedaddr> </replacedaddr>
+</sourceFile>
+<sourceFile num="10">msmcast_mp_main_patch.co
+	 <!--> 
+	补丁函数                             人员     时间        内容描述
+	Mcast_MpSysHandler_patch             徐向东   2017-12-23  C600V1.0 830分支，组播聚合组支持接收端口 补丁函数
+	<-->           	
+	    <replace num="1">Mcast_MpSysHandler_patch</replace> <replacedname>Mcast_MpSysHandler</replacedname> <replacedaddr> </replacedaddr>
+</sourceFile>
+<sourceFile num="11">msigmp_mp_main_patch.co
+	 <!--> 
+	补丁函数                             人员     时间        内容描述
+	MsIgmp_MpSysHandler_patch            徐向东   2017-12-23  C600V1.0 830分支，组播聚合组支持接收端口 补丁函数
+	<-->           	
+	    <replace num="1">MsIgmp_MpSysHandler_patch</replace> <replacedname>MsIgmp_MpSysHandler</replacedname> <replacedaddr> </replacedaddr>
+</sourceFile>
+<sourceFile num="12">msmld_mp_main_patch.co
+	 <!--> 
+	补丁函数                             人员     时间        内容描述
+	MsMld_MpSysHandler_patch             徐向东   2017-12-23  C600V1.0 830分支，组播聚合组支持接收端口 补丁函数
+	<-->           	
+	    <replace num="1">MsMld_MpSysHandler_patch</replace> <replacedname>MsMld_MpSysHandler</replacedname> <replacedaddr> </replacedaddr>
+</sourceFile>
+<sourceFile num="13">msmcast_rcvif_patch.co
+	 <!--> 
+	补丁函数                             人员     时间        内容描述
+	Mcast_SyncRcvIf_patch                徐向东   2017-12-23  C600V1.0 830分支，组播聚合组支持接收端口 补丁函数
+	Mcast_AddSgRcvIfInformGenIf_patch    徐向东   2017-12-23  C600V1.0 830分支，组播聚合组支持接收端口 补丁函数
+	Mcast_DelSgRcvIfInformGenIf_patch    徐向东   2017-12-23  C600V1.0 830分支，组播聚合组支持接收端口 补丁函数
+	OtherRcvIfInSameInner_patch          徐向东   2017-12-23  C600V1.0 830分支，组播聚合组支持接收端口 补丁函数
+	<-->     
+	    <replace num="1">Mcast_SyncRcvIf_patch</replace> <replacedname>Mcast_SyncRcvIf</replacedname> <replacedaddr> </replacedaddr>      	
+	    <replace num="2">Mcast_AddSgRcvIfInformGenIf_patch</replace> <replacedname>Mcast_AddSgRcvIfInformGenIf</replacedname> <replacedaddr> </replacedaddr>
+	    <replace num="3">Mcast_DelSgRcvIfInformGenIf_patch</replace> <replacedname>Mcast_DelSgRcvIfInformGenIf</replacedname> <replacedaddr> </replacedaddr>
+	    <replace num="4">OtherRcvIfInSameInner_patch</replace> <replacedname>OtherRcvIfInSameInner</replacedname> <replacedaddr> </replacedaddr>
+</sourceFile>
+<sourceFile num="14">msmcast_rx_patch.co
+	 <!--> 
+	补丁函数                             人员     时间        内容描述
+	Mcast_RxPktDispatch_patch            徐向东   2017-12-23  C600V1.0 830分支，组播聚合组支持接收端口 补丁函数
+	Mcast_ProcessPkt_patch               徐向东   2017-12-23  C600V1.0 830分支，组播聚合组支持接收端口 补丁函数
+	<-->           	
+	    <replace num="1">Mcast_RxPktDispatch_patch</replace> <replacedname>Mcast_RxPktDispatch</replacedname> <replacedaddr> </replacedaddr>
+	    <replace num="2">Mcast_ProcessPkt_patch</replace> <replacedname>Mcast_ProcessPkt</replacedname> <replacedaddr> </replacedaddr>
+</sourceFile>
+<sourceFile num="15">msigmp_rx_patch.co
+	 <!--> 
+	补丁函数                             人员     时间        内容描述
+	Igmp_GetMcastInRcvPkt_patch          徐向东   2017-12-23  C600V1.0 830分支，组播聚合组支持接收端口 补丁函数
+	<-->           	
+	    <replace num="1">Igmp_GetMcastInRcvPkt_patch</replace> <replacedname>Igmp_GetMcastInRcvPkt</replacedname> <replacedaddr> </replacedaddr>
+</sourceFile>
+<sourceFile num="16">msigmp_v3_rx_patch.co
+	 <!--> 
+	补丁函数                             人员     时间        内容描述
+	Igmp_ProcessV3Group_patch            徐向东   2017-12-23  C600V1.0 830分支，组播聚合组支持接收端口 补丁函数
+	<-->           	
+	    <replace num="1">Igmp_ProcessV3Group_patch</replace> <replacedname>Igmp_ProcessV3Group</replacedname> <replacedaddr> </replacedaddr>
+</sourceFile>
+<sourceFile num="17">msmld_rx_patch.co
+	 <!--> 
+	补丁函数                             人员     时间        内容描述
+	Mld_GetMcastInRcvPkt_patch           徐向东   2017-12-23  C600V1.0 830分支，组播聚合组支持接收端口 补丁函数
+	<-->           	
+	    <replace num="1">Mld_GetMcastInRcvPkt_patch</replace> <replacedname>Mld_GetMcastInRcvPkt</replacedname> <replacedaddr> </replacedaddr>
+</sourceFile>
+<sourceFile num="18">msmld_v2_rx_patch.co
+	 <!--> 
+	补丁函数                             人员     时间        内容描述
+	Mld_ProcessV2Group_patch             徐向东   2017-12-23  C600V1.0 830分支，组播聚合组支持接收端口 补丁函数
+	<-->           	
+	    <replace num="1">Mld_ProcessV2Group_patch</replace> <replacedname>Mld_ProcessV2Group</replacedname> <replacedaddr> </replacedaddr>
+</sourceFile>
+<sourceFile num="19">msmcast_timer_patch.co
+	 <!--> 
+	补丁函数                             人员     时间        内容描述
+	Mcast_NormalTimeOut_Patch            徐向东   2017-12-23  C600V1.0 830分支，组播聚合组支持接收端口 补丁函数
+	<-->           	
+	    <replace num="1">Mcast_NormalTimeOut_Patch</replace> <replacedname>Mcast_NormalTimeOut</replacedname> <replacedaddr> </replacedaddr>
+</sourceFile>
+<sourceFile num="20">msctrl_funcs_patch_mp.co
+	 <!--> 
+	补丁函数                             人员     时间        内容描述
+	MsCtrl_EventDistribute_patch         徐向东   2017-12-23  C600V1.0 830分支，组播聚合组支持接收端口 补丁函数
+	<-->           	
+	    <replace num="1">MsCtrl_EventDistribute_patch</replace> <replacedname>MsCtrl_EventDistribute</replacedname> <replacedaddr> </replacedaddr>
+</sourceFile>
+</pch>
+
+
+<pch id="1000001014">
+<process>TDM_SFUL</process>
+<type>Mc</type>
+<role>role=mpu</role>
+<arch>cpu.arch=46</arch>
+<lu>lu=T_SC</lu>
+<cpu>t2080</cpu>
+<pchname>100-0001-TDM_SFUL</pchname>
+<sourceFile num="1">tdm_alarm_patch.co
+	<!--> 
+	补丁函数                        人员        时间        内容描述
+	TDMAlarm_Report_patch        王文       2017-11-6        TDM告警
+	<-->  
+	<replace num="1">TDMAlarm_Report_patch</replace> <replacedname>TDMAlarm_Report</replacedname><replacedaddr> </replacedaddr>
+</sourceFile>
+<sourceFile num="2">clock_alarm_patch.co
+	<!--> 
+	补丁函数                        人员        时间        内容描述
+	ClockAlarm_Report_patch        王文       2017-11-8        TDM告警
+	<-->  
+	<replace num="1">ClockAlarm_Report_patch</replace> <replacedname>ClockAlarm_Report</replacedname><replacedaddr> </replacedaddr>
+</sourceFile>
+<sourceFile num="3">timemp_msg_patch.co
+	<!--> 
+	补丁函数                        人员        时间        内容描述
+	Timemp_ProcessAlarmScan_patch        王文       2017-11-10        TDM告警
+	<-->  
+	<replace num="1">Timemp_ProcessAlarmScan_patch</replace> <replacedname>Timemp_ProcessAlarmScan</replacedname><replacedaddr> </replacedaddr>
+</sourceFile>
+<sourceFile num="4">clock_support_patch.co
+	<!--> 
+	补丁函数                        人员        时间        内容描述
+	Clkros_GetRackNo_Patch        王文       2017-12-19      TDM时钟源网管显示
+	<-->  
+	<replace num="1">Clkros_GetRackNo_Patch</replace> <replacedname>Clkros_GetRackNo</replacedname><replacedaddr> </replacedaddr>
+</sourceFile>
+<sourceFile num="5">tdm_sa_patch.co
+	<!--> 
+	补丁函数                        人员        时间        内容描述
+	TdmClkGlobalGet_Patch        王文       2017-12-19      TDM时钟源网管显示
+	<-->  
+	<replace num="1">TdmClkGlobalGet_Patch</replace> <replacedname>TdmClkGlobalGet</replacedname><replacedaddr> </replacedaddr>
+</sourceFile>
+</pch>
+
+
+<pch id="1000001015">
+<process>IPSTACK_RP</process>
+<type>Mc</type>
+<role>role=mpu</role>
+<arch>cpu.arch=46</arch>
+<lu>lu=T_RP_ROUTER</lu>
+<cpu>t2080</cpu>
+<pchname>100-0001-IPSTACK_RP</pchname>
+<sourceFile num="1">ipstack_rpmain_hp.co
+	<!--> 
+	补丁函数                        人员        时间        内容描述
+	MsPort_IfAlarmNeedReport_hp        秦胜杰       2017-11-17        XGEI删端口告警
+	<-->  
+	<replace num="1">MsPort_IfAlarmNeedReport_hp</replace> <replacedname>MsPort_IfAlarmNeedReport</replacedname><replacedaddr> </replacedaddr>
+</sourceFile>
+</pch>
+
+
+<pch id="1000001016">
+<process>RMCENTER</process>
+<type>Base</type>
+<role>role=mpu</role>
+<arch>cpu.arch=46</arch>
+<lu>lu=T_SC</lu>
+<cpu>t2080</cpu>
+<pchname>100-0001-RMCENTER</pchname>
+<sourceFile num="1">dm_center_powact_patch.co
+	<!--> 
+                                  补丁函数                          人员     时间        内容描述
+    dm_center_boardonline_set_patch   潘龑     2017-11-21  修改chm轮询流程中对无CPU单板过滤
+    <-->
+    <replace num="1">dm_center_boardonline_set_patch</replace> <replacedname>dm_center_boardonline_set</replacedname> <replacedaddr> </replacedaddr>
+</sourceFile>
+</pch>
+
+<pch id="1000001017">
+<process>TDM_LP</process>
+<type>Lc</type>
+<role>role=pfu</role>
+<arch>cpu.arch=45</arch>
+<lu>lu=T_CPUM</lu>
+<cpu>t1020</cpu>
+<pchname>100-0001-TDM_LP</pchname>
+</pch>
+
+    <pch id="1000001018">
+        <process>PDCONFIG</process>
+        <type>Base</type>
+        <role>role=mpu</role>
+        <arch>cpu.arch=46</arch>
+        <lu>lu=T_SC</lu>
+        <cpu>t2080</cpu>
+        <pchname>100-0001-PDCONFIG</pchname>
+        <sourceFile num="1">pdconf_mancfg_fw_patch.co
+            <!-->
+            补丁函数                    作者          时间        热补丁功能
+            VmmLibLoadBoot_patch        陈元 10191893 2017-12-22  固件升级超时时间由8分改为30分
+            <-->
+            <replace num="1">VmmLibLoadBoot_patch</replace> 
+            <replacedname>VmmLibLoadBoot</replacedname> 
+            <replacedaddr> </replacedaddr>
+        </sourceFile>
+    </pch>
+</catalog>
