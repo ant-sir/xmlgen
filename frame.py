@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'frame.ui'
 #
-# Created by: PyQt5 UI code generator 5.9.1
+# Created by: PyQt5 UI code generator 5.9.2
 #
 # WARNING! All changes made in this file will be lost!
 
@@ -17,12 +17,18 @@ class Ui_Form(object):
         self.horizontalLayout = QtWidgets.QHBoxLayout()
         self.horizontalLayout.setObjectName("horizontalLayout")
         self.tableWidgetSource = QtWidgets.QTableWidget(Form)
+        self.tableWidgetSource.setSizeAdjustPolicy(QtWidgets.QAbstractScrollArea.AdjustIgnored)
         self.tableWidgetSource.setEditTriggers(QtWidgets.QAbstractItemView.NoEditTriggers)
+        self.tableWidgetSource.setSelectionBehavior(QtWidgets.QAbstractItemView.SelectRows)
+        self.tableWidgetSource.setVerticalScrollMode(QtWidgets.QAbstractItemView.ScrollPerItem)
+        self.tableWidgetSource.setHorizontalScrollMode(QtWidgets.QAbstractItemView.ScrollPerItem)
         self.tableWidgetSource.setRowCount(0)
-        self.tableWidgetSource.setColumnCount(1)
+        self.tableWidgetSource.setColumnCount(2)
         self.tableWidgetSource.setObjectName("tableWidgetSource")
         item = QtWidgets.QTableWidgetItem()
         self.tableWidgetSource.setHorizontalHeaderItem(0, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableWidgetSource.setHorizontalHeaderItem(1, item)
         self.tableWidgetSource.horizontalHeader().setStretchLastSection(True)
         self.tableWidgetSource.verticalHeader().setStretchLastSection(False)
         self.horizontalLayout.addWidget(self.tableWidgetSource)
@@ -70,12 +76,18 @@ class Ui_Form(object):
         self.verticalLayout.addItem(spacerItem2)
         self.horizontalLayout.addLayout(self.verticalLayout)
         self.tableWidgetDest = QtWidgets.QTableWidget(Form)
+        self.tableWidgetDest.setSizeAdjustPolicy(QtWidgets.QAbstractScrollArea.AdjustIgnored)
         self.tableWidgetDest.setEditTriggers(QtWidgets.QAbstractItemView.NoEditTriggers)
+        self.tableWidgetDest.setSelectionBehavior(QtWidgets.QAbstractItemView.SelectRows)
+        self.tableWidgetDest.setHorizontalScrollMode(QtWidgets.QAbstractItemView.ScrollPerItem)
         self.tableWidgetDest.setRowCount(0)
-        self.tableWidgetDest.setColumnCount(1)
+        self.tableWidgetDest.setColumnCount(2)
         self.tableWidgetDest.setObjectName("tableWidgetDest")
         item = QtWidgets.QTableWidgetItem()
         self.tableWidgetDest.setHorizontalHeaderItem(0, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableWidgetDest.setHorizontalHeaderItem(1, item)
+        self.tableWidgetDest.horizontalHeader().setCascadingSectionResizes(False)
         self.tableWidgetDest.horizontalHeader().setStretchLastSection(True)
         self.horizontalLayout.addWidget(self.tableWidgetDest)
         self.verticalLayout_3.addLayout(self.horizontalLayout)
@@ -115,17 +127,23 @@ class Ui_Form(object):
         self.comboBoxSelSecXml.currentTextChanged['QString'].connect(Form.selXmlSection)
         self.pushButtonGenXml.clicked.connect(Form.genXmlText)
         self.pushButtonSaveXml.clicked.connect(Form.saveXmlFile)
+        self.tableWidgetSource.cellChanged['int','int'].connect(self.tableWidgetSource.resizeColumnToContents)
+        self.tableWidgetDest.cellChanged['int','int'].connect(self.tableWidgetDest.resizeColumnToContents)
         QtCore.QMetaObject.connectSlotsByName(Form)
 
     def retranslateUi(self, Form):
         _translate = QtCore.QCoreApplication.translate
         Form.setWindowTitle(_translate("Form", "xmlgen"))
         item = self.tableWidgetSource.horizontalHeaderItem(0)
+        item.setText(_translate("Form", "File name"))
+        item = self.tableWidgetSource.horizontalHeaderItem(1)
         item.setText(_translate("Form", "Function name"))
         self.pushButtonOpen.setText(_translate("Form", "Open"))
         self.pushButtonAdd.setText(_translate("Form", ">>"))
         self.pushButtonDel.setText(_translate("Form", "<<"))
         item = self.tableWidgetDest.horizontalHeaderItem(0)
+        item.setText(_translate("Form", "File name"))
+        item = self.tableWidgetDest.horizontalHeaderItem(1)
         item.setText(_translate("Form", "New function name"))
         self.pushButtonOpenXml.setText(_translate("Form", "OpenXml"))
         self.pushButtonGenXml.setText(_translate("Form", "Generate"))

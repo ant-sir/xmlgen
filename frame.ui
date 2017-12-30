@@ -18,14 +18,26 @@
     <layout class="QHBoxLayout" name="horizontalLayout">
      <item>
       <widget class="QTableWidget" name="tableWidgetSource">
+       <property name="sizeAdjustPolicy">
+        <enum>QAbstractScrollArea::AdjustIgnored</enum>
+       </property>
        <property name="editTriggers">
         <set>QAbstractItemView::NoEditTriggers</set>
+       </property>
+       <property name="selectionBehavior">
+        <enum>QAbstractItemView::SelectRows</enum>
+       </property>
+       <property name="verticalScrollMode">
+        <enum>QAbstractItemView::ScrollPerItem</enum>
+       </property>
+       <property name="horizontalScrollMode">
+        <enum>QAbstractItemView::ScrollPerItem</enum>
        </property>
        <property name="rowCount">
         <number>0</number>
        </property>
        <property name="columnCount">
-        <number>1</number>
+        <number>2</number>
        </property>
        <attribute name="horizontalHeaderStretchLastSection">
         <bool>true</bool>
@@ -33,6 +45,11 @@
        <attribute name="verticalHeaderStretchLastSection">
         <bool>false</bool>
        </attribute>
+       <column>
+        <property name="text">
+         <string>File name</string>
+        </property>
+       </column>
        <column>
         <property name="text">
          <string>Function name</string>
@@ -140,18 +157,35 @@
      </item>
      <item>
       <widget class="QTableWidget" name="tableWidgetDest">
+       <property name="sizeAdjustPolicy">
+        <enum>QAbstractScrollArea::AdjustIgnored</enum>
+       </property>
        <property name="editTriggers">
         <set>QAbstractItemView::NoEditTriggers</set>
+       </property>
+       <property name="selectionBehavior">
+        <enum>QAbstractItemView::SelectRows</enum>
+       </property>
+       <property name="horizontalScrollMode">
+        <enum>QAbstractItemView::ScrollPerItem</enum>
        </property>
        <property name="rowCount">
         <number>0</number>
        </property>
        <property name="columnCount">
-        <number>1</number>
+        <number>2</number>
        </property>
+       <attribute name="horizontalHeaderCascadingSectionResizes">
+        <bool>false</bool>
+       </attribute>
        <attribute name="horizontalHeaderStretchLastSection">
         <bool>true</bool>
        </attribute>
+       <column>
+        <property name="text">
+         <string>File name</string>
+        </property>
+       </column>
        <column>
         <property name="text">
          <string>New function name</string>
@@ -386,6 +420,38 @@
     <hint type="destinationlabel">
      <x>813</x>
      <y>487</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>tableWidgetSource</sender>
+   <signal>cellChanged(int,int)</signal>
+   <receiver>tableWidgetSource</receiver>
+   <slot>resizeColumnToContents(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>134</x>
+     <y>127</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>102</x>
+     <y>246</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>tableWidgetDest</sender>
+   <signal>cellChanged(int,int)</signal>
+   <receiver>tableWidgetDest</receiver>
+   <slot>resizeColumnToContents(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>524</x>
+     <y>147</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>474</x>
+     <y>259</y>
     </hint>
    </hints>
   </connection>
