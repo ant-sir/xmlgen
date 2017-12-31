@@ -94,6 +94,7 @@ class Ui_Form(object):
         self.horizontalLayout_2 = QtWidgets.QHBoxLayout()
         self.horizontalLayout_2.setObjectName("horizontalLayout_2")
         self.textEditShow = QtWidgets.QTextEdit(Form)
+        self.textEditShow.setLineWrapMode(QtWidgets.QTextEdit.NoWrap)
         self.textEditShow.setObjectName("textEditShow")
         self.horizontalLayout_2.addWidget(self.textEditShow)
         self.verticalLayout_2 = QtWidgets.QVBoxLayout()
