@@ -459,6 +459,22 @@
     </hint>
    </hints>
   </connection>
+  <connection>
+   <sender>textEditShow</sender>
+   <signal>textChanged()</signal>
+   <receiver>Form</receiver>
+   <slot>setSaveEnable()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>650</x>
+     <y>517</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>813</x>
+     <y>521</y>
+    </hint>
+   </hints>
+  </connection>
  </connections>
  <slots>
   <slot>openPatchFiles()</slot>
@@ -470,5 +486,6 @@
   <slot>openXmlFile()</slot>
   <slot>saveXmlFile()</slot>
   <slot>selXmlSection()</slot>
+  <slot>setSaveEnable()</slot>
  </slots>
 </ui>
