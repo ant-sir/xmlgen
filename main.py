@@ -21,7 +21,7 @@ class MainWindow(QtWidgets.QWidget, Ui_Form):
         self.section = ''
         self.pch = None
         self.willgen = {}
-        self.xml_file
+        self.xml_file = None
 
     def insertRow(self, table, file, func):
         row = table.rowCount()
@@ -93,6 +93,7 @@ class MainWindow(QtWidgets.QWidget, Ui_Form):
             QMessageBox.warning(self, "警告", "必须选择一个进程！", QMessageBox.Ok)
             return
         iitems = self.tableWidgetDest.selectedItems()
+        self.willgen = None
         if len(iitems) == 0:
             for row in range(self.tableWidgetDest.rowCount()):
                 str_file = self.tableWidgetDest.item(row, 0).text()
@@ -145,7 +146,10 @@ class MainWindow(QtWidgets.QWidget, Ui_Form):
         #etree.dump(self.tree.getroot())
         with open(self.xml_file, mode='w', encoding='UTF-8') as fd:
             fd.write(etree.tostring(self.tree, encoding='UTF-8', pretty_print=True).decode('UTF-8'))
-        self.textEditShow.setDisabled(True)
+        self.pushButtonSaveXml.setDisabled(True)
+
+    def setSaveEnable(self):
+        self.pushButtonSaveXml.setDisabled(False)
 
 if __name__ == "__main__":
     app = QtWidgets.QApplication(sys.argv)

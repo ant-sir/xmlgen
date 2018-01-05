@@ -130,6 +130,7 @@ class Ui_Form(object):
         self.pushButtonSaveXml.clicked.connect(Form.saveXmlFile)
         self.tableWidgetSource.cellChanged['int','int'].connect(self.tableWidgetSource.resizeColumnToContents)
         self.tableWidgetDest.cellChanged['int','int'].connect(self.tableWidgetDest.resizeColumnToContents)
+        self.textEditShow.textChanged.connect(Form.setSaveEnable)
         QtCore.QMetaObject.connectSlotsByName(Form)
 
     def retranslateUi(self, Form):
