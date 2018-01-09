@@ -93,7 +93,7 @@ class MainWindow(QtWidgets.QWidget, Ui_Form):
             QMessageBox.warning(self, "警告", "必须选择一个进程！", QMessageBox.Ok)
             return
         iitems = self.tableWidgetDest.selectedItems()
-        self.willgen = None
+        self.willgen = {}
         if len(iitems) == 0:
             for row in range(self.tableWidgetDest.rowCount()):
                 str_file = self.tableWidgetDest.item(row, 0).text()
